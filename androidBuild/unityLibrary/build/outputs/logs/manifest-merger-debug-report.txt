@@ -1,0 +1,89 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:2:1-27:12
+	package
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:2:70-98
+		INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+		INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:2:99-145
+	xmlns:android
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:3:3-21:17
+	android:extractNativeLibs
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:3:16-48
+meta-data#unity.splash-mode
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:16:5-69
+	android:value
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:16:49-66
+	android:name
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:16:16-48
+meta-data#unity.splash-enable
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:17:5-74
+	android:value
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:17:51-71
+	android:name
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:17:16-50
+meta-data#unity.launch-fullscreen
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:18:5-78
+	android:value
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:18:55-75
+	android:name
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:18:16-54
+meta-data#unity.allow-resizable-window
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:19:5-84
+	android:value
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:19:60-81
+	android:name
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:19:16-59
+meta-data#notch.config
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:20:5-81
+	android:value
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:20:44-78
+	android:name
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:20:16-43
+uses-feature#0x00030000
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:22:3-52
+	android:glEsVersion
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:22:17-49
+uses-feature#android.hardware.vulkan.version
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:23:3-91
+	android:required
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:23:64-88
+	android:name
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:23:17-63
+uses-feature#android.hardware.touchscreen
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:24:3-88
+	android:required
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:24:61-85
+	android:name
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:24:17-60
+uses-feature#android.hardware.touchscreen.multitouch
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:25:3-99
+	android:required
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:25:72-96
+	android:name
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:25:17-71
+uses-feature#android.hardware.touchscreen.multitouch.distinct
+ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:26:3-108
+	android:required
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:26:81-105
+	android:name
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml:26:17-80
+uses-sdk
+INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+		INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+		ADDED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml
+		INJECTED from E:\Work\Project\Android\uaal-example\androidBuild\unityLibrary\src\main\AndroidManifest.xml

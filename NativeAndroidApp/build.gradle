@@ -5,6 +5,25 @@ plugins {
     id 'com.android.library' version '7.1.2' apply false
 }
 
+allprojects {
+    buildscript {
+        repositories {
+            google()
+            jcenter()
+        }
+//        dependencies {
+//            classpath 'com.android.tools.build:gradle:7.3.1'
+//        }
+    }
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

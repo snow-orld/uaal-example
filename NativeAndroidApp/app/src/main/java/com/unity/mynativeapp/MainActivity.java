@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == 1) isUnityLoaded = false;
+        // if(requestCode == 1) isUnityLoaded = false;
+        if (requestCode == 1) isUnityLoaded = true;
     }
 
     public void unloadUnity(Boolean doShowToast) {
