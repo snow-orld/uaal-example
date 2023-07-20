@@ -1,1 +1,10 @@
 .DS_Store
+
+*.idea
+**/build
+**/assets/bin
+**/IL2CPP
+**/IL2CppOutputProject
+**/unityLibrary/symbols
+**/jniLibs/x86*
+**/jniStaticLibs/x86*

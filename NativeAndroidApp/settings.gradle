@@ -7,11 +7,16 @@ pluginManagement {
 }
 
 include ':app'
+include ':unityLibrary'
+project(':unityLibrary').projectDir = new File('./unityexport/unityLibrary/')
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
+        flatDir {
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
     }
 }
