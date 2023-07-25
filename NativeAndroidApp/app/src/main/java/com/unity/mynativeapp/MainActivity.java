@@ -5,7 +5,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -81,5 +85,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finishAffinity();
+    }
+
+    public void btnQuit(View v) {
+        moveTaskToBack(true);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("MainActivity", "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("MainActivity", "onStop");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("MainActivity", "onResume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("MainActivity", "onRestart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("MainActivity", "onStart");
     }
 }

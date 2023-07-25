@@ -6,5 +6,5 @@
 **/IL2CPP
 **/IL2CppOutputProject
 **/unityLibrary/symbols
-**/jniLibs/x86*
-**/jniStaticLibs/x86*
+**/jniLibs/*
+**/jniStaticLibs/*
