@@ -161,6 +161,7 @@ public class AppActivity extends AppCompatActivity implements IUnityPlayerLifecy
 
     @Override
     protected void onDestroy() {
+        mUnityPlayer.destroy();
         super.onDestroy();
         Log.d(TAG, "call onDestroy");
     }
