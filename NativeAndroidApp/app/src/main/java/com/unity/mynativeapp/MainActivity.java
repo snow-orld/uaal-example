@@ -2,19 +2,35 @@ package com.unity.mynativeapp;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.SurfaceView;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.unity3d.player.UnityPlayer;
+
+import java.lang.reflect.Field;
+
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+
     boolean isUnityLoaded = false;
+
+    private View mBgView;
+    private WindowManager mWindowManager;
+    private WindowManager.LayoutParams mWindowParams;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +41,24 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         handleIntent(getIntent());
+    }
+
+    private void AddActivityToWindow() {
+        Log.d(TAG, "call CreateForegroundView");
+        mBgView = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
+        mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+
+        mWindowParams = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.TYPE_APPLICATION,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                        | WindowManager.LayoutParams.FLAG_SPLIT_TOUCH
+                        | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+                        | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
+                        | WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                PixelFormat.TRANSLUCENT);
+        mWindowManager.addView(mBgView, mWindowParams);
     }
 
     @Override
@@ -52,6 +86,13 @@ public class MainActivity extends AppCompatActivity {
         isUnityLoaded = true;
         Intent intent = new Intent(this, MainUnityActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivityForResult(intent, 1);
+    }
+
+    public void btnLoadUnityInLayout(View v) {
+        isUnityLoaded = true;
+        Intent intent = new Intent(this, AppActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityForResult(intent, 1);
     }
 

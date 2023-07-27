@@ -2,6 +2,7 @@ package com.unity.mynativeapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -9,6 +10,8 @@ import android.widget.FrameLayout;
 import com.company.product.OverrideUnityActivity;
 
 public class MainUnityActivity extends OverrideUnityActivity {
+    private static String TAG = "UnityActivity";
+
     // Setup activity layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class MainUnityActivity extends OverrideUnityActivity {
 
     @Override
     protected void showMainActivity(String setToColor) {
+        Log.d(TAG, "showMainActivity");
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         intent.putExtra("setColor", setToColor);
@@ -45,6 +49,36 @@ public class MainUnityActivity extends OverrideUnityActivity {
     @Override
     public void onUnityPlayerUnloaded() {
         showMainActivity("");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart");
     }
 
     public void addControlsToUnityFrame() {
@@ -99,6 +133,20 @@ public class MainUnityActivity extends OverrideUnityActivity {
             myButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     finish();
+                }
+            });
+            layout.addView(myButton, 300, 200);
+        }
+
+        {
+            Button myButton = new Button(this);
+            myButton.setText("MoveTaskToBack");
+            myButton.setX(10);
+            myButton.setY(800);
+
+            myButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    moveTaskToBack(true);
                 }
             });
             layout.addView(myButton, 300, 200);
