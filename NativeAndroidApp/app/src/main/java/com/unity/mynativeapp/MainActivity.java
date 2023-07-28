@@ -1,6 +1,7 @@
 package com.unity.mynativeapp;
 
 import android.content.Intent;
+import android.graphics.Camera;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
@@ -92,6 +93,13 @@ public class MainActivity extends AppCompatActivity {
     public void btnLoadUnityInLayout(View v) {
         isUnityLoaded = true;
         Intent intent = new Intent(this, AppActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT); //! Graphics device is null if use LAG_ACTIVITY_NEW_TASK
+        startActivityForResult(intent, 1);
+    }
+
+    public void btnLoadUnityCamera2(View v) {
+        isUnityLoaded = true;
+        Intent intent = new Intent(this, CameraActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT); //! Graphics device is null if use LAG_ACTIVITY_NEW_TASK
         startActivityForResult(intent, 1);
     }

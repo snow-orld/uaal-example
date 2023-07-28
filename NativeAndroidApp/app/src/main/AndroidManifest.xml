@@ -36,6 +36,12 @@
             android:process=":Unity">
         </activity>
 
+        <activity
+            android:label="NativeApp"
+            android:name=".CameraActivity"
+            android:process=":Unity">
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
