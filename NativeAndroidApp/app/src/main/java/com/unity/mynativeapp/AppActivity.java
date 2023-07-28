@@ -1,13 +1,11 @@
 package com.unity.mynativeapp;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -19,8 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.unity3d.player.IUnityPlayerLifecycleEvents;
 import com.unity3d.player.UnityPlayer;
-
-import java.lang.reflect.Field;
 
 public class AppActivity extends AppCompatActivity implements IUnityPlayerLifecycleEvents {
     private static final String TAG = "AppActivity";
@@ -34,8 +30,9 @@ public class AppActivity extends AppCompatActivity implements IUnityPlayerLifecy
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        AddUnityToView();
-        AddUnityToWindow();
+//        AddUnityDirectly();
+        AddUnityToView();
+//        AddUnityToWindow();
 
         AddControlsToUnity();
     }
@@ -116,21 +113,17 @@ public class AppActivity extends AppCompatActivity implements IUnityPlayerLifecy
         });
     }
 
+    private void AddUnityDirectly() {
+        mUnityPlayer = new UnityPlayer(this, this);
+        setContentView(mUnityPlayer);
+    }
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Log.d(TAG, "call onNewIntent");
         handleIntent(intent);
         setIntent(intent);
-    }
-
-    private void handleIntent(Intent intent) {
-        if (intent == null || intent.getExtras() == null) return;
-
-        if (intent.getExtras().containsKey("doQuit"))
-            if (mUnityPlayer != null) {
-                finish();
-            }
     }
 
     @Override
@@ -147,10 +140,30 @@ public class AppActivity extends AppCompatActivity implements IUnityPlayerLifecy
         Log.d(TAG, "call onStart");
     }
 
+    private void handleIntent(Intent intent) {
+        if (intent == null || intent.getExtras() == null) return;
+
+        if (intent.getExtras().containsKey("doQuit"))
+            if (mUnityPlayer != null) {
+                finish();
+            }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "call onResume");
+
+        //mUnityPlayer.requestFocus();    //! won't help to display Unity
+        mUnityPlayer.windowFocusChanged(true);  // must have, or else black when resume
+        mUnityPlayer.resume();
+    }
+
     @Override
     protected void onPause() {
         super.onPause();
         Log.d(TAG, "call onPause");
+        mUnityPlayer.pause();
     }
 
     @Override
@@ -178,15 +191,15 @@ public class AppActivity extends AppCompatActivity implements IUnityPlayerLifecy
     }
 
     private void SwitchToBackground() {
-        if (mBgView.isAttachedToWindow()) {
+        if (mBgView != null && mBgView.isAttachedToWindow() && mWindowManager != null) {
             Log.d(TAG, "call SwitchToBackground");
             mWindowManager.removeView(mBgView);
-            moveTaskToBack(true);
         }
+        moveTaskToBack(true);
     }
 
     private void SwitchToForeground() {
-        if (!mBgView.isAttachedToWindow()) {
+        if (mBgView != null && !mBgView.isAttachedToWindow()) {
             Log.d(TAG, "call SwitchToForeground");
             mWindowManager.addView(mBgView, mWindowParams);
         }

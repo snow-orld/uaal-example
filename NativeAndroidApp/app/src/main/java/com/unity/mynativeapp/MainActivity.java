@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     public void btnLoadUnityInLayout(View v) {
         isUnityLoaded = true;
         Intent intent = new Intent(this, AppActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT); //! Graphics device is null if use LAG_ACTIVITY_NEW_TASK
         startActivityForResult(intent, 1);
     }
 
