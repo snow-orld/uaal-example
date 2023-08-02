@@ -1,0 +1,24 @@
+                    Executable : E:\ProgramFiles\Unity\2021.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\cmake\3.10.2.4988404\bin\cmake.exe
+arguments : 
+-HF:\Playground\uaal-example\NativeCameraPlugin\camera\src\main\cpp
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=23
+-DANDROID_PLATFORM=android-23
+-DANDROID_ABI=armeabi-v7a
+-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+-DANDROID_NDK=E:\ProgramFiles\Unity\2021.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\NDK
+-DCMAKE_ANDROID_NDK=E:\ProgramFiles\Unity\2021.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\NDK
+-DCMAKE_TOOLCHAIN_FILE=E:\ProgramFiles\Unity\2021.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\NDK\build\cmake\android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=E:\ProgramFiles\Unity\2021.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\cmake\3.10.2.4988404\bin\ninja.exe
+-DCMAKE_CXX_FLAGS=-frtti -fexceptions
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=F:\Playground\uaal-example\NativeCameraPlugin\camera\build\intermediates\cxx\Debug\4pda5v24\obj\armeabi-v7a
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=F:\Playground\uaal-example\NativeCameraPlugin\camera\build\intermediates\cxx\Debug\4pda5v24\obj\armeabi-v7a
+-DCMAKE_BUILD_TYPE=Debug
+-BF:\Playground\uaal-example\NativeCameraPlugin\camera\.cxx\Debug\4pda5v24\armeabi-v7a
+-GNinja
+jvmArgs : 
+
+
+                    Build command args: []
+                    Version: 2

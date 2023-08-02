@@ -1,6 +1,8 @@
 package com.unity.mynativeapp;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Camera;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
@@ -42,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         handleIntent(getIntent());
+
+        if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            Log.d(TAG, "camera permission " + checkSelfPermission(Manifest.permission.CAMERA));
+            requestPermissions(new String[] {Manifest.permission.CAMERA}, 100);
+        }
     }
 
     private void AddActivityToWindow() {

@@ -1,0 +1,7 @@
+Executable : E:\ProgramFiles\Unity\2021.3.14f1\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+F:\Playground\uaal-example\NativeCameraPlugin\camera\.cxx\Debug\4pda5v24\arm64-v8a
+cameraPlugin
+jvmArgs : 
+

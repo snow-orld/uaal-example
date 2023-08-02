@@ -1,0 +1,3 @@
+F:/Playground/uaal-example/NativeCameraPlugin/camera/.cxx/Debug/4pda5v24/armeabi-v7a/CMakeFiles/cameraPlugin.dir
+F:/Playground/uaal-example/NativeCameraPlugin/camera/.cxx/Debug/4pda5v24/armeabi-v7a/CMakeFiles/edit_cache.dir
+F:/Playground/uaal-example/NativeCameraPlugin/camera/.cxx/Debug/4pda5v24/armeabi-v7a/CMakeFiles/rebuild_cache.dir

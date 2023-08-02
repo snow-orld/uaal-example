@@ -1,38 +1,54 @@
 package com.unity.mynativeapp;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
+import android.graphics.SurfaceTexture;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import com.unity.camera2.Camera2;
 import com.unity3d.player.IUnityPlayerLifecycleEvents;
 import com.unity3d.player.UnityPlayer;
 
 public class CameraActivity extends AppCompatActivity implements IUnityPlayerLifecycleEvents {
-    private static final String TAG = "AppActivity";
+    private static final String TAG = "CameraActivity";
+    private static CameraActivity mActivity;
     private View mBgView;
     private WindowManager mWindowManager;
     private WindowManager.LayoutParams mWindowParams;
     private FrameLayout.LayoutParams mViewParams;
     private UnityPlayer mUnityPlayer;
+    private Camera2 mCamera;
+
+    private static final int REQUEST_CAMERA_PERMISSION = 1;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.d(TAG, "call onCreate");
+
+        mActivity = this;
+
 //        AddUnityDirectly();
-        AddUnityToView();
-//        AddUnityToWindow();
+//        AddUnityToView();
+        AddUnityToWindow();
 
         AddControlsToUnity();
     }
@@ -157,13 +173,18 @@ public class CameraActivity extends AppCompatActivity implements IUnityPlayerLif
         //mUnityPlayer.requestFocus();    //! won't help to display Unity
         mUnityPlayer.windowFocusChanged(true);  // must have, or else black when resume
         mUnityPlayer.resume();
+
+//        if (mCamera != null)
+//            mCamera.startCamera();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.d(TAG, "call onPause");
+        //mUnityPlayer.windowFocusChanged(false);
         mUnityPlayer.pause();
+//        mCamera.pauseCamera();
     }
 
     @Override
@@ -175,6 +196,7 @@ public class CameraActivity extends AppCompatActivity implements IUnityPlayerLif
     @Override
     protected void onDestroy() {
         mUnityPlayer.destroy();
+        mCamera.closeCamera();
         super.onDestroy();
         Log.d(TAG, "call onDestroy");
     }
@@ -263,5 +285,38 @@ public class CameraActivity extends AppCompatActivity implements IUnityPlayerLif
             });
             layout.addView(myButton, buttonParams);
         }
+    }
+
+    public void initCamera() {
+        Log.d(TAG, "call initCamera");
+        mCamera = new Camera2(getBaseContext());
+        mCamera.Init();
+    }
+
+    public void deInitCamera() {
+        Log.d(TAG, "call deInitCamera");
+        mCamera.closeCamera();
+        mCamera.DeInit();
+        mCamera = null;
+    }
+
+    public void startCamera() {
+        Log.d(TAG, "call startCamera");
+        mCamera.startCamera();
+    }
+
+    public void pauseCamera() {
+        Log.d(TAG, "call pauseCamera");
+        mCamera.pauseCamera();
+    }
+
+    public void stopCamera() {
+        Log.d(TAG, "call stopCamera");
+        mCamera.stopCamera();
+    }
+
+    public void enableCameraPreviewUpdater(boolean update)
+    {
+        mCamera.enablePreviewUpdater(update);
     }
 }

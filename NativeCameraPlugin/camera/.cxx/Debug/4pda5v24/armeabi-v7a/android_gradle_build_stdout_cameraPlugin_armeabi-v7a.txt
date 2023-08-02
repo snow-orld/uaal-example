@@ -1,0 +1,2 @@
+ninja: Entering directory `F:\Playground\uaal-example\NativeCameraPlugin\camera\.cxx\Debug\4pda5v24\armeabi-v7a'
+ninja: no work to do.

@@ -1,0 +1,7 @@
+[
+{
+  "directory": "F:/Playground/uaal-example/NativeCameraPlugin/camera/.cxx/Debug/4pda5v24/arm64-v8a",
+  "command": "E:\\ProgramFiles\\Unity\\2021.3.14f1\\Editor\\Data\\PlaybackEngines\\AndroidPlayer\\NDK\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android23 --gcc-toolchain=E:/ProgramFiles/Unity/2021.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=E:/ProgramFiles/Unity/2021.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DcameraPlugin_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\cameraPlugin.dir\\RenderingPlugin.cpp.o -c F:\\Playground\\uaal-example\\NativeCameraPlugin\\camera\\src\\main\\cpp\\RenderingPlugin.cpp",
+  "file": "F:\\Playground\\uaal-example\\NativeCameraPlugin\\camera\\src\\main\\cpp\\RenderingPlugin.cpp"
+}
+]

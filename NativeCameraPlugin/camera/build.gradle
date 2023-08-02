@@ -1,0 +1,91 @@
+apply plugin: 'com.android.library'
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.games:games-activity:2.0.0'
+    implementation 'androidx.core:core:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+}
+
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 33
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        renderscriptTargetApi 33
+        renderscriptSupportModeEnabled false
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+}
+
+ext.buildWithDebug = true
+ext.unityPluginPath = "../../UnityProject/Assets/Plugins/Android/"
+ext.unityPluginArtifact = "cameraPlugin.aar"
+ext.artifactPath = "build/outputs/aar/"
+ext.artifactName = "camera"
+
+// convenience method to deploy release Android archive and manifest to the Unity application project
+gradle.buildFinished { buildResult ->
+
+    if (buildResult.failure == null) {
+        copy {
+            println("....................  deploy  ..............................")
+
+            if (buildWithDebug) {
+                artifactName = artifactName + "-debug.aar"
+                //manifestPath = manifestPath + "AndroidManifest.xml"
+            } else {
+                artifactName = artifactName + "-release.aar"
+                //manifestPath = manifestPath + "AndroidManifest.xml"
+            }
+
+            from(artifactPath + artifactName)
+            into(unityPluginPath)
+            println("....................  copied " + artifactPath + artifactName + " to " + unityPluginPath + "  ..........................")
+            rename { String fileName ->
+                fileName.replace(artifactName, unityPluginArtifact)
+            }
+            //from(manifestPath)
+            //into(unityPluginPath)
+            println("....................  build and deploy finished  ..............................")
+        }
+    }
+}
