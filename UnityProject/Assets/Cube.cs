@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -14,7 +15,8 @@ public class NativeAPI {
 
 public class Cube : MonoBehaviour
 {
-    public Text text;    
+    public Text text;
+    
     void appendToText(string line) { text.text += line + "\n"; }
 
     void Update()
@@ -32,12 +34,23 @@ public class Cube : MonoBehaviour
 
         lastStringColor = newColor;
     
-        if (newColor == "red") GetComponent<Renderer>().material.color = Color.red;
-        else if (newColor == "blue") GetComponent<Renderer>().material.color = Color.blue;
-        else if (newColor == "yellow") GetComponent<Renderer>().material.color = Color.yellow;
-        else GetComponent<Renderer>().material.color = Color.black;
+        // if (newColor == "red") GetComponent<Renderer>().material.color = Color.red;
+        // else if (newColor == "blue") GetComponent<Renderer>().material.color = Color.blue;
+        // else if (newColor == "yellow") GetComponent<Renderer>().material.color = Color.yellow;
+        // else GetComponent<Renderer>().material.color = Color.black;
+
+        Renderer renderer = GetComponent<Renderer>();
+        float duration = 3f;
+        if (newColor == "red") ColorTween(renderer, Color.red, duration);
+        else if (newColor == "blue") ColorTween(renderer, Color.blue, duration);
+        else if (newColor == "yellow") ColorTween(renderer, Color.yellow, duration);
+        else ColorTween(renderer, Color.black, duration);
     }
 
+    void ColorTween(Renderer renderer, Color color, float duration = 1f)
+    {
+        DOTween.To(() => { return renderer.material.color; }, c => { renderer.material.color = c; }, color, duration);
+    }
 
     void showHostMainWindow()
     {
